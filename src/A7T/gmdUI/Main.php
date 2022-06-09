@@ -9,6 +9,7 @@ use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\utils\Config;
 
 use jojoe77777\FormAPI\SimpleForm;
 
