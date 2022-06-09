@@ -6,4 +6,6 @@ projects:
   7TogkGamemodeUI:
     path: ""
     icon: "icon.png"
+    libs: 
+      - src: https://poggit.pmmp.io/ci/Infernus101/FormAPI/libFormAPI
 ...
