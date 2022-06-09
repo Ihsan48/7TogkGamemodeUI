@@ -4,25 +4,18 @@ declare(strict_types=1);
 namespace A7T\gmdUI;
 
 use pocketmine\Server;
+use pocketmine\player\GameMode;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
-use pocketmine\console\ConsoleCommandSender;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\event\Listener;
 
 use jojoe77777\FormAPI\SimpleForm;
 
-class Main extends PluginBase implements Listener{
+class Main extends PluginBase {
     
-    public function onEnable() : void
-    {
-        $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        
-        @mkdir($this->getDataFolder());
-       $this->saveDefaultConfig();
-       $this->getResource("config.yml");
-       
+    public function onEnable() : void{
+    	$this->getLogger()->info("Plugin Enable");
     }
 
     public function onCommand(CommandSender $sender, Command $cmd, String $label, Array $args) : bool {
@@ -43,7 +36,8 @@ class Main extends PluginBase implements Listener{
             switch($data){
                 case 0:
                   if($player->hasPermission("gmdui.use.creative")){
-                    $this->getServer()->dispatchCommand(new ConsoleCommandSender($this->getServer(), $this->getServer()->getLanguage()), "gamemode c ".$player->getName());
+                    $player->setGamemode(GameMode::CREATIVE());
+                    $player->sendMessage("Changed gamemode to Creative mode");
                   } else {
                     $player->sendMessage("§cYou Dont Have Permission This Commands");
                   }
@@ -51,7 +45,8 @@ class Main extends PluginBase implements Listener{
                 
                 case 1:
                   if($player->hasPermission("gmdui.use.survival")){
-                    $this->getServer()->dispatchCommand(new ConsoleCommandSender($this->getServer(), $this->getServer()->getLanguage()), "gamemode s ".$player->getName());
+                    $player->setGamemode(GameMode::SURVIVAL());
+                    $player->sendMessage("Changed gamemode to Survival mode");
                   } else {
                     $player->sendMessage("§cYou Dont Have Permission This Commands");
                   }
@@ -59,7 +54,8 @@ class Main extends PluginBase implements Listener{
                 
                 case 2:
                   if($player->hasPermission("gmdui.use.adventure")){
-                    $this->getServer()->dispatchCommand(new ConsoleCommandSender($this->getServer(), $this->getServer()->getLanguage()), "gamemode a ".$player->getName());
+                    $player->setGamemode(GameMode::ADVENTURE());
+                    $player->sendMessage("Changed gamemode to Adventure mode");
                   } else {
                     $player->sendMessage("§cYou Dont Have Permission This Commands");
                   }
@@ -67,7 +63,8 @@ class Main extends PluginBase implements Listener{
                 
                 case 3:
                   if($player->hasPermission("gmdui.use.spectator")){
-                    $this->getServer()->dispatchCommand(new ConsoleCommandSender($this->getServer(), $this->getServer()->getLanguage()), "gamemode spectator ".$player->getName());
+                    $player->setGamemode(GameMode::SPECTATOR());
+                    $player->sendMessage("Changed gamemode to Spectator mode");
                   } else {
                     $player->sendMessage("§cYou Dont Have Permission This Commands");
                   }
