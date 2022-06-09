@@ -1,0 +1,30 @@
+---
+name: 7TogkGamemodeUI
+main: A7T\gmdUI\Main
+version: 0.1
+api: 4.0.0
+author: Angga7Togk
+description: "7TogkGamemodeUI"
+website: "https://www.youtube.com/angga7togk"
+
+commands:
+  gmdui:
+    description: "§e7TogkGamemodeUI"
+    permission: gmdui.use
+
+permissions:
+  gmdui.use:
+    description: "gmdUI Permission"
+    default: op
+  gmdui.use.creative:
+    description: "Creative Permission"
+    default: op
+  gmdui.use.survival:
+    description: "Survival Permission"
+    default: op
+  gmdui.use.adventure:
+    description: "Adventure Permission"
+    default: op
+  gmdui.use.spectator:
+    description: "Spectator Permission"
+    default: op
