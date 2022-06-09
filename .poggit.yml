@@ -5,4 +5,5 @@ branches:
 projects:
   7TogkGamemodeUI:
     path: ""
+    icon: "icon.png"
 ...
