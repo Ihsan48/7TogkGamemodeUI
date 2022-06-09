@@ -15,6 +15,8 @@ use jojoe77777\FormAPI\SimpleForm;
 class Main extends PluginBase {
     
     public function onEnable() : void{
+    	$this->saveResource("config.yml");
+        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML, array());
     	$this->getLogger()->info("Plugin Enable");
     }
 
@@ -71,8 +73,8 @@ class Main extends PluginBase {
                 break;
             }
         });
-        $form->setTitle($this->getConfig()->get("title"));
-        $form->setContent($this->getConfig()->get("content"));
+        $form->setTitle($this->config->get("title"));
+        $form->setContent($this->config->get("content"));
         $form->addButton("§l§eCreative\n§rTap To Change");
         $form->addButton("§l§eSurvival\n§rTap To Change");
         $form->addButton("§l§eAdventure\n§rTap To Change");
